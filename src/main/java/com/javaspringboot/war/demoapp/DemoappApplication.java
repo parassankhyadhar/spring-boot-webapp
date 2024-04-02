@@ -11,18 +11,19 @@ public class DemoappApplication {
 
 	@GetMapping("/home")
 	public String displayHome(){
-		return "Hello, this is home" ;
+		return "Hello, this is Shopping home" ;
 	}
 
 	@GetMapping("/about")
 	public String displayAbout(){
-		return "I am a simple spring boot application." ;
+		return "I am a simaple SHOP." ;
 	}
 
 	@GetMapping("/test")
 	public String displayTest(){
-		return "!!!Test Result!!!" ;
+		return "!!!Test Result!!!  SHOPPING    !!!!!" ;
 	}
+
 	public static void main(String[] args) {
 		SpringApplication.run(DemoappApplication.class, args);
 	}
