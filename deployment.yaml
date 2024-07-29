@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  app-deployment-shopping
+  labels:
+    name:  app-deploy-shopping
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: app-pod-shopping
+  strategy:
+    rollingUpdate:
+      maxSurge: 4
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        name: app-pod-shopping
+    spec:
+      containers:
+      - image: k8sacr.azurecr.io/shopping-wabapp:latest
+        name:  app-con
+      restartPolicy: Always
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: deploy-service-shopping
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 30001
+      targetPort: 8080
+      protocol: TCP
+  selector:
+      name: app-pod-shopping
+
+---
+  
