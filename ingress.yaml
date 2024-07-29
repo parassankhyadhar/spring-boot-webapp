@@ -1,4 +1,4 @@
-# first install the nginx ingress conteoller on the AKS cluster then make the ingress file and apply it.
+# first install the nginx ingress controller on the AKS cluster then make the ingress file and apply it.
 # access the app external_ip/main/demoapp/home and external_ip/shopping/demoappshop/home
 apiVersion: networking.k8s.io/v1
 kind: Ingress
